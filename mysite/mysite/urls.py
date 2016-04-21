@@ -17,9 +17,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from linggle.views import hello_world
- 
+from linggle.views import linggleit
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', hello_world),
-    # url(r'^test/$', linggleit)
+    url(r'^$', hello_world),
+    url(r'^query/(?P<query>.+)', linggleit)
 ]

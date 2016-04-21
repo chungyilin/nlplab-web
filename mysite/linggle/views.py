@@ -1,14 +1,14 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
- 
+import requests
+import urllib
+
+
 def hello_world(request):
     return render(request, 'index.html')
 
-# def linggleit(query):
-# 	if 'search-bar' in request.GET and request.GET['search-bar'] != '':
-# 		return HttpResponse('test' + request.GET['search-bar'])
-# 	else:
-# 		return render(request, 'index.html')
 
+def linggleit(request, query):
+    url = 'http://linggle.com/query/{}'.format(urllib.quote(query, safe=''))
+    r = requests.get(url)
+    return HttpResponse(content=r.text, status=r.status_code)
