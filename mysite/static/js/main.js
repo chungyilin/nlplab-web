@@ -51,7 +51,7 @@ function init() // a page load (ajax)
 
     layout();						// set layout
     exampleHandler(EXAMPLE_STATE);	// example show/hide
-    
+
     // console.log(test());
 }
 function adjustBrowser()
@@ -84,8 +84,8 @@ function detectPlatform()
     {
 
     }
-    
-    
+
+
 }
 
 function redirect(query)
@@ -134,7 +134,7 @@ function events()
 	// $("#search-button").click(); // trigger search event
         keypressed = true
     })
-    
+
     $("#search-bar").keyup(function(e){
 	// control "Enter"
 	if(e.keyCode == 13 || e.which == 13) {
@@ -160,7 +160,7 @@ function events()
 
             $("#search-button").click(); // trigger search event
             keypressed = false
-            
+
         }
 	else{
 	    // input any character, close example
@@ -169,7 +169,7 @@ function events()
             // $("#search-button").click(); // trigger search event
 
 	}
-        
+
 	inputEmpty();
 
     }).hover(function(){
@@ -219,6 +219,7 @@ function events()
 	$("#help-container").show(0);				// show help
 	$("#help-mask").show(0,function(){			// show help mask
 	    $("body").css("overflow","hidden"); 	// disable the scroll bar
+  $("#help-tip").hide(0);
 	});
 
     });
@@ -258,7 +259,7 @@ function events()
     $('.more-text').live('click',function(e){
 	$(this).parents('.cluster').find('.fold-target').toggleClass('hide');
 	$(this).parent().find('.more-text').toggleClass('hide');
-    });		
+    });
 }
 function fillExampleSents(sents, anchor, ngramText)
 {
@@ -415,7 +416,7 @@ function fetch_worker(server, query)
 	// default "cluster"
 	fill_content( recv);
 	layout(); 			// adjust layout
-	
+
     });
     request.error(function(x, t, m){
 	if(t==="timeout") {
@@ -443,7 +444,7 @@ function fetch_worker(server, query)
 
 	    // $("<span/>").text(text).attr('id','try-'+_MODE).insertAfter('#result-block').click(function(){
 	    // 	redirect(query,_MODE);
-	    // });	
+	    // });
 
 	}else{
 	    // show command convert result
@@ -468,7 +469,7 @@ function fill_content( recv)
     //     var data = recv[cluster_idx][1];
     //     _show_clustering_results(data);
     //     $('#normal-result-container').addClass('hide');
-    //     $('#cluster-result-container').removeClass('hide');	
+    //     $('#cluster-result-container').removeClass('hide');
     //     $('#cluster-toggle').addClass('cluster-mode');
     // }
     // else if(content_mode == 'normal' || (content_mode == 'cluster' && !cluster_idx) )
@@ -477,8 +478,8 @@ function fill_content( recv)
 	_show_traditional_results(recv);
 	$('#cluster-result-container').addClass('hide');
 	$('#normal-result-container').removeClass('hide');
-	$('#cluster-toggle').addClass('normal-mode');			
-    // }	
+	$('#cluster-toggle').addClass('normal-mode');
+    // }
 }
 // function attach_cluster_toggle_event()
 // {
@@ -527,7 +528,7 @@ function query()
     fetch_worker(server, encode_query);
 
     // }else if(MODE == 'HLI')
-    // {	
+    // {
     // 	// convert the Human-Input query into Command
     // 	$.ajax({
     // 	    url: "sent/"+encode_query,
@@ -559,7 +560,7 @@ function _show_traditional_results(data)
 
 	// percent(>1 gram) or similarity(for unigram)
 	var score = obj.percent.indexOf("%") > -1 ? restore(obj.percent) : obj.percent;
-	
+
 	$('<div/>').addClass('item-bar').css("width", score*400).appendTo(item_ngram);
 
 	var item_portion = $('<td/>').addClass('item-portion').text(obj.percent).appendTo(item);
@@ -720,19 +721,45 @@ function setMode()
     var hp = HELP[MODE];
     var root = $("#help-container").find("table");
 
+    // $.each(hp, function(i){
+    // 	var tr = $("<tr/>").appendTo(root);
+    // 	var key = $("<td/>").addClass("key").appendTo(tr);
+    // 	var val = $("<td/>").addClass("val").appendTo(tr);
+    //
+    // 	$.each(hp[i], function(k, v){
+    // 	    $("<div/>").html(k).appendTo(key);
+    // 	    $("<div/>").html(v).appendTo(val);
+    // 	});
+    // });
     $.each(hp, function(i){
-	var tr = $("<tr/>").appendTo(root);
-	var key = $("<td/>").addClass("key").appendTo(tr);
-	var val = $("<td/>").addClass("val").appendTo(tr);
+    	var tr = $("<tr/>").appendTo(root);
+    	var key = $("<td/>").addClass("key").appendTo(tr);
+    	var val = $("<td/>").addClass("val").appendTo(tr);
+      // var examp = $("<td/>").addClass("ele-examp").appendTo(tr);
+      // console.log(examp);
 
-	$.each(hp[i], function(k,v){
-	    $("<div/>").html(k).appendTo(key);
-	    $("<div/>").html(v).appendTo(val);
-	});
+    	$.each(hp[i], function(k, v){
+    	    $("<div/>").html(k).appendTo(key);
+    	    $("<div/>").html(v).appendTo(val);
+          // $("<div/>").html(e).appendTo(examp);
+    	});
     });
+    // var block = '';
+    // for( i in hp) {
+    //     cmd = hp[i];
+    //     block +=  `<div class="col-md-3 text-center">
+    //         <div class="thumbnail">
+    //             <div class="caption">
+    //                 <h4>` + member.name + `<br><small>` + member.alias + `</small></h4>
+    //                 <p>` + member.research + `</p>
+    //             </div>
+    //         </div>
+    //     </div>`;
+    // }
+    // $('div.undergrad > div:first-child').append(und_block);
 }
 
-// detect the current status, send the query if it is necessary 
+// detect the current status, send the query if it is necessary
 function infofetch()
 {
     var params = location.hash.split('#');
@@ -776,4 +803,6 @@ function infofetch()
 }
 /*****************/
 
-
+// $(function() {
+//     $( "#tabs" ).tabs();
+//   });

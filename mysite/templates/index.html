@@ -23,6 +23,7 @@
     <link type="text/css" rel="stylesheet" href="static/css/utility.css" />
     <link type="text/css" rel="stylesheet" href="static/css/cluster.css" />
     <link type="text/css" rel="stylesheet" href="static/css/traditional.css" />
+    <link rel="stylesheet" href="static/css/hint.css"></link>
 
     <!-- jQuery -->
     <script type="text/javascript" src="static/js/jquery.js" ></script>
@@ -39,13 +40,14 @@
   </head>
 
   <body class="body">
-    
+
 
     <div id="container">
       <div id="help-mask" class="hide"></div>
       <div id="help-container" class="hide">
+        <h3>Search Elements</h3>
         <table cellspacing="0" cellpadding="0"></table>
-      </div> 
+      </div>
       <div id="header-container">
         <div id="header">
           <div id="title-container">
@@ -66,7 +68,9 @@
               <img src="static/img/search.png"/>
             </button>
 
-            <div id="search-help">Help</div>
+            <div id="search-help">Help
+              <div id="help-tip" class="hint--bottom hint--always" data-hint="It may help you with the search!"></div>
+            </div>
             <!-- <div id="showBottom">About</div> -->
 
             <button id="cluster-toggle" class="normal-mode hide">cluster</button>
@@ -75,7 +79,7 @@
         </div>
       </div>
 
-      <div id="content">    
+      <div id="content">
 
         <div id="cmd-convert-result"></div>
         <div id="cluster-result-container" class="result-container hide">
@@ -87,34 +91,34 @@
         <table id="normal-result-container" cellspacing="0" cellpadding="0"></table>
         <table id="result-block"  cellspacing="0" cellpadding="0"  class="hide"></table>
       </div>
-      
+
       <div id="content-mask"></div>
-      
+
       <div id="footer" class="f">
-        
+
         <!-- <div><a href="/about/">about Linggle</a></div> -->
         <div>
           請您協助填寫Linggle使用者問卷，以提供您更好的使用體驗！ <a href="http://goo.gl/forms/RkU4xyIoCY" target="_blank" >Online Questionnaire</a>
-          © 2016 
+          © 2016
           <a href="http://www.nlplab.cc" target="_blank">NTHU NLPLab </a>
         </div>
         <div>
-          <a href="https://www.facebook.com/linggle/" target="_blank" >
-            <span class="fa-stack fa-lg">
+          <a href="https://www.facebook.com/linggle/" target="_blank" class="hint--top" data-hint="Facebook" >
+            <span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top">
               <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-facebook fa-stack-1x" style="color: gray;"></i>
+              <i class="fa fa-facebook fa-stack-1x" aria-hidden="true" style="color: gray;"></i>
             </span>
           </a>
-          <a href="http://online.fliphtml5.com/ides/odzn/#p=1" target="_blank" >
+          <a href="http://online.fliphtml5.com/ides/odzn/#p=1" target="_blank" class="hint--top" data-hint="Linggle Calender" >
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-book fa-stack-1x" style="color: gray;"></i>
+              <i class="fa fa-book fa-stack-1x" aria-hidden="true" style="color: gray;"></i>
             </span>
           </a>
-          <a href="mailto:support@nlplab.cc" >
+          <a href="mailto:support@nlplab.cc" class="hint--top" data-hint="Contact Us" >
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-envelope fa-stack-1x"  style="color: gray;"></i>
+              <i class="fa fa-envelope fa-stack-1x"  aria-hidden="true" style="color: gray;"></i>
             </span>
           </a>
         </div>
