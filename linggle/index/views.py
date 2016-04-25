@@ -4,7 +4,7 @@ import requests
 import urllib
 
 
-def hello_world(request):
+def index(request):
     return render(request, 'index.html')
 
 
