@@ -1,3 +1,5 @@
 # linggle-django
 
-/linggle-django/mysite > python manage.py runserver
+pip install -r requirements/local.txt
+
+/linggle-django/linggle > python manage.py runserver
