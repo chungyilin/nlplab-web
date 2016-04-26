@@ -20,6 +20,7 @@ pexpect==4.0.1
 pickleshare==0.6
 Pillow==3.2.0
 prompt-toolkit==0.60
+psycopg2==2.6.1
 ptpython==0.32
 ptyprocess==0.5.1
 Pygments==2.1.3
