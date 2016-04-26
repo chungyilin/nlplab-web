@@ -5,7 +5,7 @@ import urllib
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index/index.html')
 
 
 def linggleit(request, query):
