@@ -1,0 +1,14 @@
+{% load account %}
+{% load socialaccount %}
+{% user_display user %}
+{% providers_media_js %}
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'account_logout' %}">Sign Out</a>
+
+{% else %}
+
+<a href="{% provider_login_url 'facebook' %}">facebook</a>
+
+{% endif %}
