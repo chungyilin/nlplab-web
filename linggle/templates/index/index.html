@@ -1,7 +1,8 @@
 {% load staticfiles %}
 <!DOCTYPE HTML>
 <html>
-  <head>
+
+<head>
     <!-- coding : utf-8 -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -18,112 +19,67 @@
 
     <meta name=“description” content="Linggle 10^12 is a language reference search engine developed by NTHU NLPLab. The system takes advantage of all public Web pages to provide frequency information on word combinations. With frequency information, you can exam if the phrase is composed in a common way. And with the powerful query syntax, you can find out a proper phrase to describe a subject, a concept or the usage of certain verb, adjective, adverb">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="static/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/utility.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/cluster.css" />
-    <link type="text/css" rel="stylesheet" href="static/css/traditional.css" />
-    <link rel="stylesheet" href="static/css/hint.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" />
 
     <!-- jQuery -->
-    <script type="text/javascript" src="static/js/jquery.js" ></script>
-    <script type="text/javascript" src="static/js/jquery.ba-hashchange.min.js" ></script>
-    <script type="text/javascript" src="static/js/data.js" ></script>
-    <script type="text/javascript" src="static/js/utility.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 
-    <script type="text/javascript" src="static/js/layout.js" ></script>
-    <script type="text/javascript" src="static/js/example.js" ></script>
-    <script type="text/javascript" src="static/js/cluster.js" ></script>
-    <script type="text/javascript" src="static/js/main.js" ></script>
-
-    <link rel="shortcut icon" href="static/img/favicon.png"  />
-  </head>
-
-  <body class="body">
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <script src="static/js/index/main.js"></script>
 
 
-    <div id="container">
-{% include "index/user.html" %}
-      <div id="help-mask" class="hide"></div>
-      <div id="help-container" class="hide">
-        <h3>Search Elements</h3>
-        <table cellspacing="0" cellpadding="0"></table>
-      </div>
-      <div id="header-container">
-        <div id="header">
-          <div id="title-container">
-            <a href="#"><img id="logo-linggle" src="static/img/linggle.png"/></a>
-            <img id="logo-square" src="static/img/square.png"/>
-          </div>
-          <div id="search-container">
-            <table id="search-table" cellspacing="0" cellpadding="0">
-              <tr>
-                <td id="search-bar-container" class="bar-normal">
-                  <!-- <form action="test" method="post"> -->
-                    <input id="search-bar" type="text" name="search-bar" value="{{ inputquery }}" />
-                  <!-- </form> -->
-                </td>
-              </tr>
-            </table>
-            <button id="search-button">
-              <img src="static/img/search.png"/>
-            </button>
+</head>
+{% include "index/header.html" %}
 
-            <div id="search-help">Help
-              <div id="help-tip" class="hint--bottom hint--always" data-hint="It may help you with the search!"></div>
+<body>
+    <div class="ui container stacked segment">
+        <img class="ui centered medium image" src="static/img/linggle-logo.png">
+        <div class="ui centered stackable grid">
+            <div class="ten wide column item">
+                <div class="ui action fluid icon input">
+                    <input class="prompt" type="text" id="search-bar">
+                    <i class="remove icon"></i>
+                    <button class="ui yellow icon button" id="bookmark-btn">
+                        <i class="tag icon"></i>
+                    </button>
+                    <button class="ui grey icon button" id="delete-btn">
+                        <i class="delete icon"></i>
+                    </button>
+                </div>
+                <table class="ui single line unstackable selectable table">
+                    <tbody id="input-list">
+                    </tbody>
+                </table>
             </div>
-            <!-- <div id="showBottom">About</div> -->
-
-            <button id="cluster-toggle" class="normal-mode hide">cluster</button>
-            <div id="search-loading"><img src="static/img/loading.gif"></div>
-          </div>
+            <div class="column">
+                <button class="ui labeled icon pink button">
+                    <i class="help circle icon"></i> HELP
+                </button>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div id="content">
 
-        <div id="cmd-convert-result"></div>
-        <div id="cluster-result-container" class="result-container hide">
-          <div id="tip" class="f hide">Tip : In each bubble, <em>very</em> similar words are grouped togheter under the same tint!</div>
-          <div id="cluster-type-container"><!-- preserve for cluster type (VN, AN) --></div>
-          <div id="cluster-tag-container"></div>
-          <div id="clusters-container" class="f"></div>
-        </div>
-        <table id="normal-result-container" cellspacing="0" cellpadding="0"></table>
-        <table id="result-block"  cellspacing="0" cellpadding="0"  class="hide"></table>
-      </div>
+    <div class="ui container">
+        <table class="ui very compact large blue selectable unstackable table">
+            <thead>
+                <tr>
+                    <th class="ten wide">N-gram</th>
+                    <th class="one wide">percent</th>
+                    <th class="one wide">count</th>
+                    <th class="one wide">example</th>
+                </tr>
+            </thead>
+            <tbody id="search-result">
+                <tr>
+                    <td>No result</td>
+                </tr>
+            </tbody>
 
-      <div id="content-mask"></div>
+        </table>
+    </div>
+    </div>
+</body>
 
-      <div id="footer" class="f">
-
-        <!-- <div><a href="/about/">about Linggle</a></div> -->
-        <div>
-          請您協助填寫Linggle使用者問卷，以提供您更好的使用體驗！ <a href="http://goo.gl/forms/RkU4xyIoCY" target="_blank" >Online Questionnaire</a>
-          © 2016
-          <a href="http://www.nlplab.cc" target="_blank">NTHU NLPLab </a>
-        </div>
-        <div>
-          <a href="https://www.facebook.com/linggle/" target="_blank" class="hint--top" data-hint="Facebook" >
-            <span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top">
-              <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-facebook fa-stack-1x" aria-hidden="true" style="color: gray;"></i>
-            </span>
-          </a>
-          <a href="http://online.fliphtml5.com/ides/odzn/#p=1" target="_blank" class="hint--top" data-hint="Linggle Calender" >
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-book fa-stack-1x" aria-hidden="true" style="color: gray;"></i>
-            </span>
-          </a>
-          <a href="mailto:support@nlplab.cc" class="hint--top" data-hint="Contact Us" >
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x" style="color: white;"></i>
-              <i class="fa fa-envelope fa-stack-1x"  aria-hidden="true" style="color: gray;"></i>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div> <!--container -->
-  </body>
 </html>
