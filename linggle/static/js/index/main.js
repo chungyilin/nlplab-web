@@ -18,7 +18,7 @@ $(document).ready(function() {
     renderInputList();
     inputListItemClickEvent();
     inputListItemHoverEvent();
-    
+
     window.addEventListener('scroll', function(e) {
         if (scrollSwitch) {
             clearTimeout(timeoutId);
@@ -39,7 +39,8 @@ $(document).ready(function() {
         $('#search-bar').val('');
         $('#search-bar').trigger('input');
     });
-
+    $('.ui.modal')
+        .modal('attach events', '#help-btn', 'show');
     $('#search-bar').on('input', function() {
         var query = escape($('#search-bar').val().trim());
         if (query !== '') {
