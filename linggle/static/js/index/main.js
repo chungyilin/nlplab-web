@@ -41,6 +41,16 @@ $(document).ready(function() {
     });
     $('.ui.modal')
         .modal('attach events', '#help-btn', 'show');
+//Sign in/up modla control
+    $('.coupled.modal')
+        .modal({
+            allowMultiple: true
+        });
+    $('.signup.modal')
+        .modal('attach events', '#sign-up-btn');
+    $('.signin.modal')
+        .modal('attach events', '#sign-in-up-btn');
+//
     $('#search-bar').on('input', function() {
         var query = escape($('#search-bar').val().trim());
         if (query !== '') {
