@@ -150,7 +150,7 @@ function renderSearchResult(data) {
                 '<td>' + element.percent + '</td>' +
                 '<td>' + element.count_str + '</td>' +
                 '<td class="center aligned">' +
-                '<button class="circular ui icon button">' +
+                '<button class="ui icon button">' +
                 '<i class="icon plus"></i>' +
                 '</button>' +
                 '</td>' +
