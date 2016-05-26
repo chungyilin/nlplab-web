@@ -1,19 +1,47 @@
+{% load socialaccount %} {% providers_media_js %}
 <div class="ui inverted menu">
     <div class="right item">
+        {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}">
+            <button class="ui inverted button">Logout</button>
+        </a>
+        {% else %}
         <button class="ui inverted button" id="sign-in-up-btn">Sign In/Up</button>
+        {% endif %}
     </div>
 </div>
-<div class="ui coupled signin modal">
+<div class="ui coupled signin basic modal">
     <div class="header">Sign In</div>
     <div class="content">
-        <p></p>
-        <p></p>
-        <p></p>
-        <button class="ui primary button" id="sign-up-btn">
-            Sign Up
-        </button>
+        <div class="container ">
+            <a href="{% provider_login_url 'facebook' %}">Facebook Login</a>
+            <form class="ui form" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %} {{ form.non_field_errors }}
+                <div class="field">
+                    {{ form.login.errors }}
+                    <input type="text" name="login" placeholder="Account">
+                </div>
+                <div class="field">
+                    {{ form.password.errors }}
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="field">
+                    {{ form.remember.errors }}
+                        <input type="hidden" name="remember" checked="checked">
+                </div>
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                <button class="ui button" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
+    <button class="ui primary button" id="sign-up-btn">
+        Sign Up
+    </button>
 </div>
+</div>
+
+
 <div class="ui coupled signup modal">
     <div class="header">Sign Up</div>
     <div class="content">
