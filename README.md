@@ -21,6 +21,7 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 
 #### Have fun
 ```
+/linggle-django/linggle > python manage.py migrate
 /linggle-django/linggle > python manage.py runserver
 /linggle-django/linggle > python manage.py runserver_plus
 /linggle-django/linggle > python manage.py shell
@@ -47,3 +48,7 @@ Just add Postgres.app bin path to `$PATH` variable:
  `>  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/<version>/bin`
 
  (Check out your Postgres.app version number first, and replace `<version>` with the version number.)
+
+2. Occuring `ImproperlyConfigured: No Facebook app configured: please add a SocialApp using the Django admin` when running server:
+
+You need to [create an admin user](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/django/admin.html) for diango app.
