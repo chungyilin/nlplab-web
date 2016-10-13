@@ -19,8 +19,6 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 ```pip install -r requirements/local.txt```
 
 
-
-
 #### Have fun
 ```
 /linggle-django/linggle > python manage.py runserver
@@ -29,3 +27,20 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 /linggle-django/linggle > python manage.py shell_plus
 ```
 > runserver_plus & shell_plus is powered by django-extensions http://django-extensions.readthedocs.org/en/latest/
+
+#### Trouble shooting
+
+1. Occuring error when installing python package (for mac):
+```
+Error: pg_config executable not found.
+
+    Please add the directory containing pg_config to the PATH
+    or specify the full executable path with the option:
+
+        python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+    or with the pg_config option in 'setup.cfg'.
+```
+Just add Postgres.app bin path to `$PATH` varialbe:
+ `>  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/<version>/bin`
+ (Check out your Postgres.app version number first, and replace `<version>` with the version number.)
