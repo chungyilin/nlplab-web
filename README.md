@@ -31,6 +31,7 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 #### Trouble shooting
 
 1. Occuring error when installing python package (for mac):
+###### Error message
 ```
 Error: pg_config executable not found.
 
@@ -42,5 +43,7 @@ Error: pg_config executable not found.
     or with the pg_config option in 'setup.cfg'.
 ```
 Just add Postgres.app bin path to `$PATH` variable:
+
  `>  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/<version>/bin`
+
  (Check out your Postgres.app version number first, and replace `<version>` with the version number.)
