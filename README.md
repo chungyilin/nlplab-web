@@ -52,4 +52,7 @@ Just add Postgres.app bin path to `$PATH` variable:
 
 - Occuring `ImproperlyConfigured: No Facebook app configured: please add a SocialApp using the Django admin` when running server:
 
-You need to [create an admin user](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/django/admin.html) for diango app.
+You need to [create an admin user](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/django/admin.html) for diango app:
+```
+> python manage.py createsuperuser
+```
