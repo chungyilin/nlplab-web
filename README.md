@@ -53,7 +53,15 @@ Just add Postgres.app bin path to `$PATH` variable:
 
 - Occuring `ImproperlyConfigured: No Facebook app configured: please add a SocialApp using the Django admin` when running server:
 
-You need to [create an admin user](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/django/admin.html) for diango app:
+Step 1. You need to [create an admin user](https://djangogirlstaipei.gitbooks.io/django-girls-taipei-tutorial/content/django/admin.html) for this diango app:
 ```
 > python manage.py createsuperuser
 ```
+
+Step 2. After that, navigate to `http://localhost:<port>/admin/` (runserver first), then log in with your account and password that you just created with `createsuperuser`.
+
+Step 3. Navigate to `http://localhost:8000/admin/socialaccount/socialapp/add/` to add a social application for Facebook.
+
+Step 4. Go to [Facebook developers](https://developers.facebook.com/) to create an app in order to get app ID and app secret key for this django app.
+
+Step 5. After created, go to `Settings > Basics` to get app ID and app secret key, then copy the keys and paste then to Django application form.
