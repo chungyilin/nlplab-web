@@ -22,10 +22,11 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 #### Have fun
 ```
 /linggle-django/linggle > python manage.py migrate
+/linggle-django/linggle > python manage.py createsuperuser
 /linggle-django/linggle > python manage.py runserver
-/linggle-django/linggle > python manage.py runserver_plus
-/linggle-django/linggle > python manage.py shell
-/linggle-django/linggle > python manage.py shell_plus
+/linggle-django/linggle > python manage.py runserver_plus (optional)
+/linggle-django/linggle > python manage.py shell (optional)
+/linggle-django/linggle > python manage.py shell_plus (optional)
 ```
 > runserver_plus & shell_plus is powered by django-extensions http://django-extensions.readthedocs.org/en/latest/
 
