@@ -32,6 +32,7 @@ GRANT ALL PRIVILEGES ON DATABASE linggle_local TO linggle;
 #### Trouble shooting
 
 - Occuring error when installing python package (for mac):
+
 ###### Error message
 ```
 Error: pg_config executable not found.
