@@ -8,7 +8,7 @@ def index(request):
     return render(request, 'index/index.html')
 
 def itriindex(request):
-    return render(request, 'index/index.html')
+    return render(request, 'index/itriindex.html')
 
 def linggleit(request, query):
     url = 'http://linggle.com/query/{}'.format(urllib.quote(query, safe=''))
