@@ -7,6 +7,8 @@ import urllib
 def index(request):
     return render(request, 'index/index.html')
 
+def itriindex(request):
+    return render(request, 'index/index.html')
 
 def linggleit(request, query):
     url = 'http://linggle.com/query/{}'.format(urllib.quote(query, safe=''))
