@@ -17,13 +17,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from index.views import index
-from index.views import itriindex
+from index.views import itri
 from index.views import linggleit
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^$', index),
-    url(r'^itri/', itriindex),
+    url(r'^itri/', itri),
     url(r'^query/(?P<query>.+)', linggleit)
 ]
