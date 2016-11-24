@@ -1,3 +1,8 @@
+/* remove bootstrap default blue outline */
+.linggle.btn:focus {
+   outline: none !important;
+}
+
 /* main btn */
 .linggle.btn-main {
   background-color: #cc0000;
