@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Linggle 10^12- Language Reference Search Engines - NLPLab</title>
-
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
     <!-- bootstrap latest compiled and minified CSS -->
   	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
@@ -14,9 +14,24 @@
     <!-- core css stylesheets -->
     <link rel="stylesheet" type="text/css" href="/static/css/itri/core.css">
     <link rel="stylesheet" type="text/css" href="/static/css/itri/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/itri/search-result.css">
   </head>
   <body>
+    <!-- navbar template -->
     {% include "itri/navbar.html" %}
+
+    <!-- main content -->
+    <div class="container-fluid" style="margin:0;padding:0;min-height:800px;">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- search result template -->
+          {% include "itri/search-result.html" %}
+        </div>
+        <div>
+          <!-- future content -->
+        </div>
+      </div>
+    </div>
 
     <!-- jquery & boostrap js lib -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
