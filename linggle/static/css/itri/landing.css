@@ -1,0 +1,21 @@
+.linggle.landing {
+
+}
+
+.linggle.landing .container {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.linggle.landing .carousel {
+  background-image: url(/static/img/carousel-bg.png);
+  background-color: #990000;
+  padding: 25px 0 25px 0;
+}
+
+.linggle.landing .carousel .carousel-inner > .item > img,
+.linggle.landing .carousel .carousel-inner > .item > a > img {
+  margin: auto;
+}

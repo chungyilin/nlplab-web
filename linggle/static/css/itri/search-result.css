@@ -1,5 +1,6 @@
 .linggle.search-result {
-
+  /* when search-bar not being focused, this is further controlled by jquery in itri/main.js */
+  display: none;
 }
 
 .linggle.search-result .container {
