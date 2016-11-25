@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/itri/help-modal.css">
     <link rel="stylesheet" type="text/css" href="/static/css/itri/landing.css">
     <link rel="stylesheet" type="text/css" href="/static/css/itri/carousel.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/itri/intro-slides.css">
   </head>
   <body>
     <!-- navbar template -->
@@ -27,10 +28,10 @@
     <div class="container-fluid" style="margin:0;padding:0;min-height:800px;">
       <div class="row">
         <div class="col-md-12">
-          <!-- landing page template -->
-          {% include "itri/landing.html" %}
           <!-- search result template -->
           {% include "itri/search-result.html" %}
+          <!-- landing page template -->
+          {% include "itri/landing.html" %}
         </div>
         <div>
           <!-- future content -->
@@ -48,6 +49,8 @@
     <!-- velocity js, an animation lib (for future usage)-->
     <!-- ref: https://codepen.io/macsupport/pen/OPwvwx -->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.2/velocity.min.js"></script> -->
+    <script type="text/javascript" src="/static/js/itri/search-bar.js"></script>
+    <script type="text/javascript" src="/static/js/itri/intro-slides.js"></script>
     <script type="text/javascript" src="/static/js/itri/main.js"></script>
   </body>
 </html>

@@ -1,13 +1,13 @@
-.help-modal .modal-body {
+.linggle.help-modal .modal-body {
   padding-right: 50px;
 }
 
-.help-modal .modal-body li {
+.linggle.help-modal .modal-body li {
   font-size: 1.1em;
   line-height: 2em;
 }
 
-.help-modal .modal-body li.divider {
+.linggle.help-modal .modal-body li.divider {
   height: 1px;
   margin-top: 17px;
   margin-bottom: 15px;
@@ -15,19 +15,19 @@
   border: 1px dashed #e5e5e5;
 }
 
-.help-modal .label {
+.linggle.help-modal .label {
   font-size: 0.9em;
 }
 
-.help-modal .label .highlight {
+.linggle.help-modal .label .highlight {
   color: #cc0000;
 }
 
-.help-modal .label-red {
+.linggle.help-modal .label-red {
   background: #cc0000;
 }
 
-.help-modal .label-gray {
+.linggle.help-modal .label-gray {
   background: #e5e5e5;
   color: black;
   font-weight: normal;
