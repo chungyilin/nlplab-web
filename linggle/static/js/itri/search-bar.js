@@ -6,6 +6,7 @@ var SearchBar = {
 
     searchBar.focus(this.handleOnFocus);
     searchBar.blur(this.handleOnBlur);
+    searchBar.on('input', this.handleOnInput);
   },
 
   handleOnFocus: function() {
@@ -24,5 +25,12 @@ var SearchBar = {
     // toggle visibility
     landingPage.fadeIn(200);
     searchResultPage.hide();
+  },
+
+  handleOnInput: function() {
+    var query = escape($('#search-bar').val().trim());
+    if (query !== '') {
+      SearchResult.query(query)
+    }
   }
 }
