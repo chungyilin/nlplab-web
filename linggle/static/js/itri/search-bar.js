@@ -21,14 +21,18 @@ var SearchBar = {
   handleOnBlur: function() {
     var landingPage = $('.linggle.landing');
     var searchResultPage = $('.linggle.search-result');
+    var searchBar = $('.linggle #search-bar');
 
-    // toggle visibility
-    landingPage.fadeIn(200);
-    searchResultPage.hide();
+    if(searchBar.val().trim() == 0) {
+      // toggle visibility
+      landingPage.fadeIn(200);
+      searchResultPage.hide();
+    }
   },
 
   handleOnInput: function() {
-    var query = escape($('#search-bar').val().trim());
+    var searchBar = $('.linggle #search-bar');
+    var query = escape(searchBar.val().trim());
     if (query !== '') {
       SearchResult.query(query)
     }
