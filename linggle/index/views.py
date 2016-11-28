@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import requests
 import urllib
 
-API_URL = 'http://ironman.nlpweb.org:9487/?search={}'
+API_URL = 'http://lost.nlpweb.org:9487/?search={}'
 
 
 def index(request):
