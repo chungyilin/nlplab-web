@@ -23,7 +23,8 @@ var SearchBar = {
     var searchResultPage = $('.linggle.search-result');
     var searchBar = $('.linggle #search-bar');
 
-    if(searchBar.val().trim() == 0) {
+    // no input text
+    if(!searchBar.val().trim()) {
       // toggle visibility
       landingPage.fadeIn(200);
       searchResultPage.hide();
@@ -33,8 +34,9 @@ var SearchBar = {
   handleOnInput: function() {
     var searchBar = $('.linggle #search-bar');
     var query = escape(searchBar.val().trim());
-    if (query !== '') {
-      SearchResult.query(query)
+
+    if (query) {
+      SearchResult.query(query);
     }
   }
 }
