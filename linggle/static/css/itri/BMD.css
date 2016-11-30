@@ -1,0 +1,22 @@
+.slide_row {
+  font-size: 1.3em;
+  line-height: 2em;
+  padding-top: 50px;
+  padding-bottom: 35px;
+  border-bottom: 2px dashed #e5e5e5;
+}
+.slide_strong{
+  font-weight: bold;
+  background: #cc0000;
+  font-size: 0.9em;
+  color: #ffffff;
+}
+.BMD_bar{
+  background: #000000;
+  color: #ffffff;
+}
+
+.BMD_element{
+  background: #ffffff;
+  color: #000000;
+}
